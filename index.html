@@ -3,77 +3,28 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>JailBreaks | 360</title>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-    <link rel="stylesheet" href="style.css">
+    <title>360-Code | Elite Digital Solutions</title>
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/animations.css">
 </head>
 <body>
-    <nav class="main-nav"><!-- Same nav as index.html --></nav>
-
-    <main>
-        <section class="page-header">
-            <div class="container">
-                <h1>JailBreaks</h1>
-                <p>Advanced access utilities</p>
-            </div>
-        </section>
-
-        <section class="product-page">
-            <div class="container">
-                <div class="product-detail">
-                    <div class="product-gallery">
-                        <!-- You can add product screenshots/videos here -->
-                        <div class="product-image">
-                            <i class="fas fa-unlock" style="font-size: 4rem; color: #00f0ff;"></i>
-                        </div>
-                    </div>
-                    <div class="product-info">
-                        <h2>DeepSeek JailBreak</h2>
-                        <p class="product-description">A sophisticated bypass tool designed for developers and testers to unlock full system potential in a controlled environment.</p>
-                        
-                        <div class="product-features">
-                            <h3>Features</h3>
-                            <ul>
-                                <li><i class="fas fa-check"></i> Complete access bypass</li>
-                                <li><i class="fas fa-check"></i> Stealth operation mode</li>
-                                <li><i class="fas fa-check"></i> Persistent access maintenance</li>
-                                <li><i class="fas fa-check"></i> Priority technical support</li>
-                            </ul>
-                        </div>
-
-                        <div class="product-pricing">
-                            <span class="price">$5.99</span>
-                            <span class="license">One-time purchase</span>
-                        </div>
-
-                        <button class="btn btn-primary btn-purchase" onclick="openAcquisitionModal('DeepSeek JailBreak', 5.99)">
-                            <i class="fas fa-shopping-cart"></i> Acquire Now
-                        </button>
-                    </div>
-                </div>
-            </div>
-        </section>
-    </main>
-
-    <div id="acquisitionModal" class="modal">
-        <div class="modal-content">
-            <div class="modal-header">
-                <h3>Acquire <span id="modalProductName"></span></h3>
-                <span class="close-modal">&times;</span>
-            </div>
-            <div class="modal-body">
-                <p>To acquire this product, please join our Discord server and create a ticket. Our team will assist you immediately.</p>
-                <div class="modal-actions">
-                    <a href="https://discord.gg/WJfQuTU82B" target="_blank" class="btn btn-primary">
-                        <i class="fab fa-discord"></i> Join Discord & Create Ticket
-                    </a>
-                    <button class="btn btn-secondary" onclick="closeModal()">Cancel</button>
-                </div>
+    <nav class="glow-in">
+        <div class="nav-container">
+            <a href="index.html" class="logo">360-CODE</a>
+            <div class="nav-links">
+                <a href="about.html" class="nav-link slide-in-left">ABOUT US</a>
+                <a href="shop.html" class="nav-link slide-in-right">SHOP</a>
             </div>
         </div>
-    </div>
+    </nav>
 
-    <script src="script.js"></script>
+    <main>
+        <section class="hero">
+            <h1 class="text-focus-in">BEYOND THE CODE</h1>
+            <p class="text-focus-in">Providing cutting-edge digital assets since 2022. Your #1 source for elite automation and access.</p>
+            <a href="shop.html" class="cta-button pulse">ENTER THE SHOP</a>
+        </section>
+    </main>
+    <script src="js/main.js"></script>
 </body>
 </html>
