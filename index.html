@@ -1,104 +1,63 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" class="no-js">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>360 | Digital Solutions</title>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <title>360 | Digital Evolution</title>
+    <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;500;600;700;800;900&family=Rajdhani:wght@300;400;500;600;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="css/style.css">
     <link rel="icon" type="image/x-icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>360</text></svg>">
+    
+    <!-- Libraries -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.11.4/gsap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.11.4/ScrollTrigger.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.11.4/ScrollToPlugin.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/howler/2.2.3/howler.min.js"></script>
 </head>
 <body>
+    <!-- Loading Screen -->
     <div id="loading">
-        <div class="loader"></div>
-        <p>Initializing 360 Systems...</p>
+        <div class="loader-container">
+            <div class="loader"></div>
+            <div class="loading-text">
+                <span class="loading-title">INITIALIZING 360</span>
+                <span class="loading-subtitle">Loading digital singularity...</span>
+            </div>
+        </div>
     </div>
 
+    <!-- 3D Background Canvas -->
+    <div id="three-container"></div>
+
+    <!-- Magnetic Cursor -->
+    <div class="cursor"></div>
+    <div class="cursor-follower"></div>
+
+    <!-- Navigation -->
     <nav class="main-nav">
         <div class="nav-container">
-            <a href="index.html" class="logo">360</a>
+            <a href="index.html" class="logo" data-text="360">360</a>
             <div class="nav-menu">
-                <a href="index.html" class="nav-link active">Home</a>
-                <a href="jailbreaks.html" class="nav-link">JailBreaks</a>
-                <a href="discord.html" class="nav-link">Discord</a>
-                <a href="groups.html" class="nav-link">Groups</a>
-                <a href="https://discord.gg/WJfQuTU82B" target="_blank" class="nav-link cta-nav">Support</a>
+                <a href="index.html" class="nav-link active" data-text="Home">Home</a>
+                <a href="products.html" class="nav-link" data-text="Products">Products</a>
+                <a href="https://discord.gg/WJfQuTU82B" target="_blank" class="nav-link cta-nav" data-text="Discord">Discord</a>
+            </div>
+            <div class="nav-hamburger">
+                <div class="hamburger-line"></div>
             </div>
         </div>
     </nav>
 
-    <main>
-        <section class="hero">
-            <div class="hero-background"></div>
-            <div class="hero-content">
-                <h1>Engineered Digital Solutions</h1>
-                <p>Precision tools for discerning users. Built on reliability, delivered with discretion.</p>
-                <div class="hero-actions">
-                    <a href="#categories" class="btn btn-primary">Explore Products</a>
-                    <a href="https://discord.gg/WJfQuTU82B" target="_blank" class="btn btn-secondary">Join Community</a>
-                </div>
-            </div>
-        </section>
-
-        <section id="categories" class="categories">
-            <div class="container">
-                <h2>Product Categories</h2>
-                <div class="category-grid">
-                    <a href="jailbreaks.html" class="category-card">
-                        <div class="category-icon">
-                            <i class="fas fa-unlock"></i>
-                        </div>
-                        <h3>JailBreaks</h3>
-                        <p>Advanced access utilities and bypass systems for testing and development.</p>
-                        <span class="category-cta">View Products <i class="fas fa-arrow-right"></i></span>
-                    </a>
-
-                    <a href="discord.html" class="category-card">
-                        <div class="category-icon">
-                            <i class="fab fa-discord"></i>
-                        </div>
-                        <h3>Discord</h3>
-                        <p>Specialized bots and tools for server management, automation, and security.</p>
-                        <span class="category-cta">View Products <i class="fas fa-arrow-right"></i></span>
-                    </a>
-
-                    <a href="groups.html" class="category-card">
-                        <div class="category-icon">
-                            <i class="fas fa-users"></i>
-                        </div>
-                        <h3>Groups</h3>
-                        <p>Exclusive community access for support, resources, and networking.</p>
-                        <span class="category-cta">View Products <i class="fas fa-arrow-right"></i></span>
-                    </a>
-                </div>
-            </div>
-        </section>
-    </main>
-
-    <footer class="main-footer">
-        <div class="container">
-            <div class="footer-content">
-                <div class="footer-section">
-                    <h4>360</h4>
-                    <p>Digital Solutions</p>
-                </div>
-                <div class="footer-section">
-                    <h4>Connect</h4>
-                    <a href="https://discord.gg/WJfQuTU82B" target="_blank">Discord</a>
-                </div>
-                <div class="footer-section">
-                    <h4>Legal</h4>
-                    <a href="terms.html">Terms of Service</a>
-                    <a href="privacy.html">Privacy Policy</a>
-                </div>
-            </div>
-            <div class="footer-bottom">
-                <p>&copy; 2024 360. All rights reserved.</p>
-            </div>
-        </div>
-    </footer>
-
-    <script src="script.js"></script>
-</body>
-</html>
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="hero-content">
+            <h1 class="hero-title">
+                <span class="title-word">DIGITAL</span>
+                <span class="title-word">EVOLUTION</span>
+                <span class="title-word">STARTS</span>
+                <span class="title-word">HERE</span>
+            </h1>
+            <p class="hero-subtitle">We engineer the tools that redefine possibility. Precision. Power. Discretion.</p>
+            <div class
