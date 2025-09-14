@@ -1,0 +1,52 @@
+// Initialize VanillaTilt for all product cards
+document.addEventListener('DOMContentLoaded', function() {
+    VanillaTilt.init(document.querySelectorAll("[data-tilt]"), {
+        max: 15,
+        speed: 400,
+        glare: true,
+        "max-glare": 0.2,
+    });
+
+    // Show the hero section on load
+    showSection('hero-section');
+});
+
+function showSection(sectionId) {
+    // Hide all sections
+    document.querySelectorAll('main > section').forEach(section => {
+        section.classList.remove('section-active');
+        section.style.opacity = 0;
+    });
+
+    // Show the requested section
+    const targetSection = document.getElementById(sectionId);
+    targetSection.classList.add('section-active');
+    
+    // Force a reflow to ensure the display:block is processed before opacity transition
+    setTimeout(() => {
+        targetSection.style.opacity = 1;
+    }, 10);
+
+    // Scroll to top if not hero
+    if (sectionId !== 'hero-section') {
+        window.scrollTo({ top: 0, behavior: 'smooth' });
+    }
+}
+
+function initiatePurchase(productName, productPrice) {
+    // The Enhanced Interrogation Logic with Price
+    let discordTag = prompt(`[${productName} - $${productPrice} AUD]\nTo verify eligibility and facilitate delivery, please enter your Discord Tag (e.g., User#1234):`);
+    if (!discordTag || !discordTag.match(/.+#\d{4}/)) {
+        alert("Invalid Discord Tag. This is a required field for procurement.");
+        return;
+    }
+
+    let isMember = confirm("Are you currently a member of the 360-Code Discord server? Click 'OK' for Yes, 'Cancel' for No.");
+
+    if (isMember) {
+        alert(`Excellent. Please open a ticket in the Discord and state you are seeking: "${productName}" for $${productPrice} AUD. Your tag is ${discordTag}.`);
+    } else {
+        alert("Access to our products requires community membership for support and verification. You will now be redirected.");
+        window.location.href = "https://discord.gg/WJfQuTU82B";
+    }
+}
