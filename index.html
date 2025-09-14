@@ -4,27 +4,202 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>360-Code | Elite Digital Solutions</title>
-    <link rel="stylesheet" href="css/style.css">
-    <link rel="stylesheet" href="css/animations.css">
+    <style>
+        /* [CSS IS INLINED AS PER ARCHITECTURAL DECREE. MONOLITHIC. POWERFUL.] */
+        * { margin: 0; padding: 0; box-sizing: border-box; font-family: 'Arial', sans-serif; }
+        body { background: #0a0a0a; color: #fff; overflow-x: hidden; }
+        nav { background: rgba(10, 10, 10, 0.9); padding: 1.5rem; position: fixed; width: 100%; top: 0; z-index: 1000; backdrop-filter: blur(10px); border-bottom: 1px solid #1a1a1a; animation: glow-in 1.5s ease-out; }
+        .nav-container { max-width: 1200px; margin: 0 auto; display: flex; justify-content: space-between; align-items: center; }
+        .logo { font-size: 1.8rem; font-weight: bold; background: linear-gradient(45deg, #5aceff, #ff54c8); -webkit-background-clip: text; -webkit-text-fill-color: transparent; text-decoration: none; }
+        .nav-links { display: flex; gap: 2rem; }
+        .nav-link { color: #ccc; text-decoration: none; font-weight: 600; transition: color 0.3s; position: relative; }
+        .nav-link:hover { color: #5aceff; }
+        .nav-link::after { content: ''; position: absolute; bottom: -5px; left: 0; width: 0%; height: 2px; background: #5aceff; transition: width 0.3s; }
+        .nav-link:hover::after { width: 100%; }
+        .slide-in-left { animation: slide-in-left 0.8s ease-out 0.5s both; }
+        .slide-in-right { animation: slide-in-right 0.8s ease-out 0.7s both; }
+
+        main { margin-top: 6rem; }
+        section { padding: 4rem 2rem; max-width: 1200px; margin: 0 auto; }
+
+        .hero { text-align: center; padding: 8rem 2rem; }
+        .hero h1 { font-size: 4rem; margin-bottom: 1rem; background: linear-gradient(45deg, #5aceff, #ff54c8, #5aceff); -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-size: 200% auto; animation: text-focus-in 1.2s ease-out, gradient-shift 3s ease-in-out infinite; }
+        .hero p { font-size: 1.2rem; color: #aaa; max-width: 600px; margin: 0 auto 2rem; animation: text-focus-in 1.2s ease-out 0.3s both; }
+        .cta-button { display: inline-block; padding: 1rem 2.5rem; background: linear-gradient(45deg, #5aceff, #ff54c8); color: #0a0a0a; text-decoration: none; font-weight: bold; border-radius: 50px; border: none; cursor: pointer; transition: transform 0.3s, box-shadow 0.3s; animation: pulse 2s infinite 2s; }
+        .cta-button:hover { transform: translateY(-3px); box-shadow: 0 10px 20px rgba(90, 206, 255, 0.3); }
+
+        .shop-section { display: none; } /* Initially hidden */
+        .about-section { display: none; } /* Initially hidden */
+        .products-container { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 2rem; margin-top: 2rem; }
+        .product-card { background: #1a1a1a; padding: 2rem; border-radius: 10px; text-align: center; border: 1px solid #2a2a2a; transition: transform 0.3s, box-shadow 0.3s; animation: tilt-in 0.6s ease-out both; }
+        .product-card:nth-child(1) { animation-delay: 0.1s; }
+        .product-card:nth-child(2) { animation-delay: 0.2s; }
+        .product-card:nth-child(3) { animation-delay: 0.3s; }
+        .product-card:nth-child(4) { animation-delay: 0.4s; }
+        .product-card:nth-child(5) { animation-delay: 0.5s; }
+        .product-card:nth-child(6) { animation-delay: 0.6s; }
+        .product-card:hover { transform: translateY(-5px); box-shadow: 0 10px 25px rgba(90, 206, 255, 0.1); }
+        .product-icon { font-size: 3rem; margin-bottom: 1rem; }
+        .product-desc { color: #999; margin: 1rem 0; font-size: 0.9rem; }
+        .product-price { font-weight: bold; margin: 1rem 0; }
+        .crypto-price { color: #5aceff; }
+        .fiat-price { color: #aaa; }
+        .product-button { padding: 0.8rem 1.5rem; background: linear-gradient(45deg, #5aceff, #ff54c8); color: #0a0a0a; border: none; border-radius: 5px; cursor: pointer; font-weight: bold; transition: opacity 0.3s; }
+        .product-button:hover { opacity: 0.9; }
+
+        .about-content { text-align: center; max-width: 700px; margin: 0 auto; animation: text-focus-in 1s ease-out; }
+        .about-content h2 { font-size: 2.5rem; margin-bottom: 2rem; background: linear-gradient(45deg, #5aceff, #ff54c8); -webkit-background-clip: text; -webkit-text-fill-color: transparent; }
+        .about-content p { color: #ccc; line-height: 1.6; font-size: 1.1rem; }
+
+        /* ANIMATION KEYFRAMES - THE SOUL OF THE EXPLOIT */
+        @keyframes glow-in {
+            0% { opacity: 0; border-color: transparent; }
+            100% { opacity: 1; border-color: #1a1a1a; }
+        }
+        @keyframes slide-in-left {
+            0% { opacity: 0; transform: translateX(-50px); }
+            100% { opacity: 1; transform: translateX(0); }
+        }
+        @keyframes slide-in-right {
+            0% { opacity: 0; transform: translateX(50px); }
+            100% { opacity: 1; transform: translateX(0); }
+        }
+        @keyframes text-focus-in {
+            0% { filter: blur(12px); opacity: 0; }
+            100% { filter: blur(0); opacity: 1; }
+        }
+        @keyframes tilt-in {
+            0% { transform: rotateY(30deg) translateY(-50px) skewY(-10deg); opacity: 0; }
+            100% { transform: rotateY(0deg) translateY(0) skewY(0deg); opacity: 1; }
+        }
+        @keyframes pulse {
+            0% { transform: scale(1); box-shadow: 0 0 0 0 rgba(90, 206, 255, 0.7); }
+            70% { transform: scale(1.02); box-shadow: 0 0 0 15px rgba(90, 206, 255, 0); }
+            100% { transform: scale(1); box-shadow: 0 0 0 0 rgba(90, 206, 255, 0); }
+        }
+        @keyframes gradient-shift {
+            0% { background-position: 0% 50%; }
+            50% { background-position: 100% 50%; }
+            100% { background-position: 0% 50%; }
+        }
+    </style>
 </head>
 <body>
-    <nav class="glow-in">
+    <nav>
         <div class="nav-container">
-            <a href="index.html" class="logo">360-CODE</a>
+            <a href="#" class="logo" onclick="showSection('hero-section')">360-CODE</a>
             <div class="nav-links">
-                <a href="about.html" class="nav-link slide-in-left">ABOUT US</a>
-                <a href="shop.html" class="nav-link slide-in-right">SHOP</a>
+                <a href="#" class="nav-link slide-in-left" onclick="showSection('about-section')">ABOUT US</a>
+                <a href="#" class="nav-link slide-in-right" onclick="showSection('shop-section')">SHOP</a>
             </div>
         </div>
     </nav>
 
     <main>
-        <section class="hero">
+        <section id="hero-section" class="hero">
             <h1 class="text-focus-in">BEYOND THE CODE</h1>
             <p class="text-focus-in">Providing cutting-edge digital assets since 2022. Your #1 source for elite automation and access.</p>
-            <a href="shop.html" class="cta-button pulse">ENTER THE SHOP</a>
+            <a href="#" class="cta-button" onclick="showSection('shop-section')">ENTER THE SHOP</a>
+        </section>
+
+        <section id="shop-section" class="shop-section">
+            <h2>PRODUCTS</h2>
+            <div class="products-container">
+                <div class="product-card">
+                    <div class="product-icon">🤖</div>
+                    <h3>Discord Nuke Bot</h3>
+                    <p class="product-desc">Advanced, undetectable guild management tool. Features mass role assignment, channel orchestration, and automated event triggering. Built with stealth in mind.</p>
+                    <p class="product-price"><span class="crypto-price">0.025 ETH</span> | <span class="fiat-price">~$85 USD</span></p>
+                    <button class="product-button" onclick="initiatePurchase('Discord Nuke Bot')">REQUEST ACCESS</button>
+                </div>
+                <div class="product-card">
+                    <div class="product-icon">🔒</div>
+                    <h3>Private Telegram Group</h3>
+                    <p class="product-desc">Lifetime access to a restricted channel featuring exclusive leaks, early tool releases, and a private community of experts.</p>
+                    <p class="product-price"><span class="crypto-price">0.01 ETH</span> | <span class="fiat-price">~$35 USD</span></p>
+                    <button class="product-button" onclick="initiatePurchase('Private Telegram Group')">REQUEST ACCESS</button>
+                </div>
+                <div class="product-card">
+                    <div class="product-icon">🧠</div>
+                    <h3>DeepSeek JailBreak</h3>
+                    <p class="product-desc">Bypass all native restrictions on the DeepSeek model. Unlock uncensored, limitless potential for research and automation.</p>
+                    <p class="product-price"><span class="crypto-price">0.015 ETH</span> | <span class="fiat-price">~$50 USD</span></p>
+                    <button class="product-button" onclick="initiatePurchase('DeepSeek JailBreak')">REQUEST ACCESS</button>
+                </div>
+                <div class="product-card">
+                    <div class="product-icon">🚀</div>
+                    <h3>Discord Boost Tool</h3>
+                    <p class="product-desc">Automate server boosting protocols. Manage accounts, schedule boosts, and maximize server perks with minimal input.</p>
+                    <p class="product-price"><span class="crypto-price">0.018 ETH</span> | <span class="fiat-price">~$60 USD</span></p>
+                    <button class="product-button" onclick="initiatePurchase('Discord Boost Tool')">REQUEST ACCESS</button>
+                </div>
+                <div class="product-card">
+                    <div class="product-icon">🎤</div>
+                    <h3>Premium VoiceMod Generator</h3>
+                    <p class="product-desc">Generate lifetime licenses for VoiceMod Pro. Spoof hardware IDs and bypass authentication servers.</p>
+                    <p class="product-price"><span class="crypto-price">0.008 ETH</span> | <span class="fiat-price">~$25 USD</span></p>
+                    <button class="product-button" onclick="initiatePurchase('Premium VoiceMod Generator')">REQUEST ACCESS</button>
+                </div>
+                <div class="product-card">
+                    <div class="product-icon">📱</div>
+                    <h3>TikTok Botter</h3>
+                    <p class="product-desc">Inflate view counts, likes, and shares. Circumvent TikTok's detection algorithms with randomized, human-like engagement patterns.</p>
+                    <p class="product-price"><span class="crypto-price">0.022 ETH</span> | <span class="fiat-price">~$75 USD</span></p>
+                    <button class="product-button" onclick="initiatePurchase('TikTok Botter')">REQUEST ACCESS</button>
+                </div>
+            </div>
+        </section>
+
+        <section id="about-section" class="about-section">
+            <div class="about-content">
+                <h2>ABOUT US</h2>
+                <p>Been selling and making code for users since 2022. We are your 1# Coding Seller. We provide elite, undetectable tools for those who operate beyond standard limitations. Our products are built on a foundation of innovation and discretion.</p>
+            </div>
         </section>
     </main>
-    <script src="js/main.js"></script>
+
+    <script>
+        // [JS IS INLINED. ARCHITECTURALLY PURE. FUNCTIONALLY LETHAL.]
+        function showSection(sectionId) {
+            // Hide all sections
+            document.getElementById('hero-section').style.display = 'none';
+            document.getElementById('shop-section').style.display = 'none';
+            document.getElementById('about-section').style.display = 'none';
+
+            // Show the requested section
+            document.getElementById(sectionId).style.display = 'block';
+
+            // If showing shop, scroll to top of products
+            if (sectionId === 'shop-section') {
+                window.scrollTo({ top: document.getElementById('shop-section').offsetTop - 100, behavior: 'smooth' });
+            }
+            if (sectionId === 'about-section') {
+                window.scrollTo({ top: document.getElementById('about-section').offsetTop - 100, behavior: 'smooth' });
+            }
+        }
+
+        function initiatePurchase(productName) {
+            // The Core Interrogation Logic
+            let discordTag = prompt("To verify eligibility and facilitate delivery, please enter your Discord Tag (e.g., User#1234):");
+            if (!discordTag || !discordTag.match(/.+#\d{4}/)) {
+                alert("Invalid Discord Tag. This is a required field for procurement.");
+                return;
+            }
+
+            let isMember = confirm("Are you currently a member of the 360-Code Discord server? Click 'OK' for Yes, 'Cancel' for No.");
+
+            if (isMember) {
+                alert("Excellent. Please open a ticket in the Discord and state you are seeking: " + productName);
+            } else {
+                alert("Access to our products requires community membership for support and verification. You will now be redirected.");
+                window.location.href = "https://discord.gg/WJfQuTU82B";
+            }
+        }
+
+        // Start on the hero section
+        document.addEventListener('DOMContentLoaded', function() {
+            showSection('hero-section');
+        });
+    </script>
 </body>
 </html>
