@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>360 Code Store</title>
+    <style>
+        body {
+            font-family: 'Arial', sans-serif;
+            background: linear-gradient(135deg, #0f0c29, #302b63, #24243e);
+            color: white;
+            margin: 0;
+            padding: 20px;
+            text-align: center;
+        }
+        .product {
+            background: rgba(255, 255, 255, 0.1);
+            border-radius: 15px;
+            padding: 20px;
+            margin: 20px auto;
+            max-width: 400px;
+            backdrop-filter: blur(10px);
+            box-shadow: 0 8px 32px rgba(0, 0, 0, 0.3);
+        }
+        .price {
+            font-size: 1.5em;
+            color: #ffcc00;
+            font-weight: bold;
+        }
+        .btn {
+            background: linear-gradient(45deg, #ff0066, #ff00cc);
+            color: white;
+            padding: 12px 25px;
+            border: none;
+            border-radius: 25px;
+            font-size: 1em;
+            cursor: pointer;
+            margin-top: 10px;
+            font-weight: bold;
+        }
+        .btn:hover {
+            opacity: 0.9;
+        }
+    </style>
+</head>
+<body>
+    <h1>🔥 360 CODE STORE 🔥</h1>
+
+    <div class="product">
+        <h2>1. DeepSeek JailBreak</h2>
+        <p>Make everything free for testing. Bypass paywalls.</p>
+        <p class="price">$5.99</p>
+        <button class="btn" onclick="buyProduct('DeepSeek JailBreak', 5.99)">BUY NOW</button>
+    </div>
+
+    <div class="product">
+        <h2>2. Discord Nuke Bot</h2>
+        <p>Total server control. Mass delete, ban, spam. Powerful.</p>
+        <p class="price">$14.99</p>
+        <button class="btn" onclick="buyProduct('Discord Nuke Bot', 14.99)">BUY NOW</button>
+    </div>
+
+    <div class="product">
+        <h2>3. Private Telegram Group</h2>
+        <p>Exclusive access. Tools, support, community.</p>
+        <p class="price">$9.99</p>
+        <button class="btn" onclick="buyProduct('Private Telegram Group', 9.99)">BUY NOW</button>
+    </div>
+
+    <script>
+        function buyProduct(productName, price) {
+            // This will open a prompt for the user to enter their Discord ID
+            let discordId = prompt("Enter your Discord ID (e.g., YourName#1234):");
+            if (!discordId) {
+                alert("Discord ID is required!");
+                return;
+            }
+
+            // Open the PayPal.Me link in a new tab
+            let paypalLink = `https://paypal.me/YourPayPalUsername/${price}`; // 🔥 REPLACE "YourPayPalUsername" with your actual PayPal username!
+            window.open(paypalLink, '_blank');
+
+            // Show instructions
+            alert(`✅ INSTRUCTIONS:
+1. You've been opened to PayPal. Send $${price} to complete payment.
+2. MUST include your Discord ID ("${discordId}") in the PayPal note.
+3. Your key will be sent to you on Discord within 24 hours.
+
+Thank you for your purchase!`);
+        }
+    </script>
+</body>
+</html>
