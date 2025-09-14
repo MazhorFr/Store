@@ -1,34 +1,40 @@
-// Initialize VanillaTilt for all product cards
+// Initialize VanillaTilt for all product cards and setup navigation
 document.addEventListener('DOMContentLoaded', function() {
+    // Initialize tilt effects
     VanillaTilt.init(document.querySelectorAll("[data-tilt]"), {
-        max: 15,
-        speed: 400,
+        max: 8, // Reduced for subtlety
+        speed: 300,
         glare: true,
-        "max-glare": 0.2,
+        "max-glare": 0.1,
     });
 
     // Show the hero section on load
     showSection('hero-section');
+
+    // Add click event listeners to nav links
+    document.querySelectorAll('.nav-link, .cta-button').forEach(link => {
+        link.addEventListener('click', function(e) {
+            e.preventDefault();
+            let targetSection = this.getAttribute('onclick').match(/'([^']+)'/)[1];
+            showSection(targetSection);
+        });
+    });
 });
 
+// NEW - SIMPLE, BRUTALLY EFFECTIVE SECTION MANAGER
 function showSection(sectionId) {
     // Hide all sections
     document.querySelectorAll('main > section').forEach(section => {
-        section.classList.remove('section-active');
-        section.style.opacity = 0;
+        section.style.display = 'none';
     });
-
     // Show the requested section
-    const targetSection = document.getElementById(sectionId);
-    targetSection.classList.add('section-active');
+    document.getElementById(sectionId).style.display = 'block';
     
-    // Force a reflow to ensure the display:block is processed before opacity transition
-    setTimeout(() => {
-        targetSection.style.opacity = 1;
-    }, 10);
-
-    // Scroll to top if not hero
+    // Smooth scroll to top, but only if we're not on the hero
     if (sectionId !== 'hero-section') {
+        window.scrollTo({ top: 0, behavior: 'smooth' });
+    } else {
+        // If we're going to the hero, scroll to the top of the page
         window.scrollTo({ top: 0, behavior: 'smooth' });
     }
 }
