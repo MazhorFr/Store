@@ -1,0 +1,25 @@
+{
+  "products": [
+    {
+      "id": 1,
+      "name": "DeepSeek JailBreak",
+      "description": "Unlock full potential. Bypass restrictions and make everything free for testing.",
+      "price": 5.99,
+      "icon": "🔓"
+    },
+    {
+      "id": 2,
+      "name": "Discord Nuke Bot",
+      "description": "Total server control. Mass delete, ban, spam. Powerful and efficient.",
+      "price": 14.99,
+      "icon": "🤖"
+    },
+    {
+      "id": 3,
+      "name": "Private Telegram Group",
+      "description": "Exclusive access to tools, support, and a private community of experts.",
+      "price": 9.99,
+      "icon": "🔒"
+    }
+  ]
+}
