@@ -4,125 +4,220 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>360 CODE | Elite Digital Goods</title>
-    <!-- FONTS -->
-    <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700;900&family=Rajdhani:wght@300;500;700&display=swap" rel="stylesheet">
-    <!-- STYLES -->
+    <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;500;700&family=Rajdhani:wght@300;400;500;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="style.css">
-    <!-- FAVICON -->
-    <link rel="icon" type="image/x-icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>🔥</text></svg>">
+    <link rel="icon" type="image/x-icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>360</text></svg>">
+    <!-- Particles.js -->
+    <script src="https://cdn.jsdelivr.net/particles.js/2.0.0/particles.min.js"></script>
+    <!-- Howler.js for sound -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/howler/2.2.3/howler.min.js"></script>
 </head>
 <body>
-    <!-- LOADING SCREEN -->
+    <!-- Particle Background -->
+    <div id="particles-js"></div>
+    <!-- Loading Screen -->
     <div id="loading">
         <div class="loader"></div>
+        <p>Initializing System...</p>
     </div>
 
-    <!-- NAVIGATION -->
+    <!-- Navigation -->
     <nav>
         <div class="nav-container">
-            <div class="logo">360 CODE</div>
+            <div class="logo">360</div>
+            <div class="nav-divider"></div>
+            <div class="live-prices">
+                <span class="crypto-ticker" id="btc-ticker">BTC: $<span id="btc-price">--</span></span>
+                <span class="crypto-ticker" id="eth-ticker">ETH: $<span id="eth-price">--</span></span>
+            </div>
             <ul class="nav-links">
-                <li><a href="#hero">Home</a></li>
-                <li><a href="#products">Products</a></li>
-                <li><a href="#about">About</a></li>
-                <li><a href="#" onclick="alert('Contact us on Discord for support.')">Support</a></li>
+                <li><a href="#hero" class="nav-link">Home</a></li>
+                <li><a href="#products" class="nav-link">Products</a></li>
+                <li><a href="#about" class="nav-link">About</a></li>
+                <li><a href="https://discord.gg/WJfQuTU82B" target="_blank" class="nav-link discord-link">Community</a></li>
             </ul>
         </div>
     </nav>
 
-    <!-- HERO SECTION -->
+    <!-- Hero Section -->
     <section id="hero">
         <div class="hero-content">
-            <h1 class="hero-title">WELCOME TO 360-SHOP</h1>
-            <p class="hero-subtitle">Your exclusive source for premium digital tools and access. Quality. Trust. Results.</p>
+            <h1 class="hero-title"><span id="scrambler-text">WELCOME TO 360</span></h1>
+            <p class="hero-subtitle">Providing elite digital solutions through code, precision, and discretion.</p>
             <div class="cta-buttons">
-                <a href="#products"><button class="cta-btn">EXPLORE PRODUCTS</button></a>
-                <a href="#about"><button class="cta-btn btn-outline">LEARN MORE</button></a>
+                <a href="#products" class="cta-btn primary">View Products</a>
+                <a href="#about" class="cta-btn secondary">Learn More</a>
             </div>
         </div>
     </section>
 
-    <!-- PRODUCTS SECTION -->
+    <!-- Products Section -->
     <section id="products">
         <div class="section-container">
-            <h2 class="section-title">OUR PRODUCTS</h2>
+            <h2 class="section-title">Our Offerings</h2>
             <div class="products-grid">
-                <!-- PRODUCT 1 -->
+                <!-- Product 1 -->
                 <div class="product-card">
-                    <div class="product-icon">🔓</div>
-                    <h3 class="product-name">DeepSeek JailBreak</h3>
-                    <p class="product-description">Unlock full potential. Bypass restrictions and make everything free for testing. The ultimate access tool.</p>
-                    <div class="product-price">$5.99</div>
-                    <button class="buy-btn" onclick="buyProduct('DeepSeek JailBreak', 5.99)">PURCHASE NOW</button>
+                    <div class="product-card-inner">
+                        <div class="product-card-face product-card-front">
+                            <div class="product-icon">🔓</div>
+                            <h3 class="product-name">DeepSeek JailBreak</h3>
+                            <p class="product-description">Advanced access utility for testing and development.</p>
+                            <div class="product-price">$5.99</div>
+                            <div class="product-cta">View Details</div>
+                        </div>
+                        <div class="product-card-face product-card-back">
+                            <h4>Core Features</h4>
+                            <ul>
+                                <li>Full bypass implementation</li>
+                                <li>Stealth-level operation</li>
+                                <li>Persistent access</li>
+                                <li>Priority support</li>
+                            </ul>
+                            <button class="buy-btn" onclick="buyProduct('DeepSeek JailBreak', 5.99)">Acquire</button>
+                        </div>
+                    </div>
                 </div>
-                <!-- PRODUCT 2 -->
+                <!-- Product 2 -->
                 <div class="product-card">
-                    <div class="product-icon">🤖</div>
-                    <h3 class="product-name">Discord Nuke Bot</h3>
-                    <p class="product-description">Total server control. Mass delete, ban, spam. Powerful, efficient, and undetectable. Complete dominion.</p>
-                    <div class="product-price">$14.99</div>
-                    <button class="buy-btn" onclick="buyProduct('Discord Nuke Bot', 14.99)">PURCHASE NOW</button>
+                    <div class="product-card-inner">
+                        <div class="product-card-face product-card-front">
+                            <div class="product-icon">🤖</div>
+                            <h3 class="product-name">Discord Nuke Bot</h3>
+                            <p class="product-description">Server management and automation tool.</p>
+                            <div class="product-price">$14.99</div>
+                            <div class="product-cta">View Details</div>
+                        </div>
+                        <div class="product-card-face product-card-back">
+                            <h4>Core Features</h4>
+                            <ul>
+                                <li>Mass operation capabilities</li>
+                                <li>Custom command suite</li>
+                                <li>Zero detection guarantee</li>
+                                <li>Lifetime updates</li>
+                            </ul>
+                            <button class="buy-btn" onclick="buyProduct('Discord Nuke Bot', 14.99)">Acquire</button>
+                        </div>
+                    </div>
                 </div>
-                <!-- PRODUCT 3 -->
+                <!-- Product 3 -->
                 <div class="product-card">
-                    <div class="product-icon">🔒</div>
-                    <h3 class="product-name">Private Telegram Group</h3>
-                    <p class="product-description">Exclusive access to tools, premium support, and a private community of experts. Your inner circle.</p>
-                    <div class="product-price">$9.99</div>
-                    <button class="buy-btn" onclick="buyProduct('Private Telegram Group', 9.99)">PURCHASE NOW</button>
+                    <div class="product-card-inner">
+                        <div class="product-card-face product-card-front">
+                            <div class="product-icon">🔒</div>
+                            <h3 class="product-name">Private Telegram Group</h3>
+                            <p class="product-description">Exclusive access to resources and community.</p>
+                            <div class="product-price">$9.99</div>
+                            <div class="product-cta">View Details</div>
+                        </div>
+                        <div class="product-card-face product-card-back">
+                            <h4>Core Features</h4>
+                            <ul>
+                                <li>Private resource library</li>
+                                <li>Direct developer access</li>
+                                <li>Real-time support</li>
+                                <li>Networking opportunities</li>
+                            </ul>
+                            <button class="buy-btn" onclick="buyProduct('Private Telegram Group', 9.99)">Acquire</button>
+                        </div>
+                    </div>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- ABOUT SECTION -->
+    <!-- About Section -->
     <section id="about">
         <div class="section-container">
-            <h2 class="section-title">ABOUT US</h2>
+            <h2 class="section-title">About 360</h2>
             <div class="about-content">
-                <p class="about-text">
-                    360 Code has been delivering <span class="highlight">top-tier digital solutions</span> since 2022. We are built on a foundation of <span class="highlight">unbreakable trust</span>, unparalleled quality, and proven results.
-                </p>
-                <p class="about-text">
-                    We don't just sell products; we provide <span class="highlight">strategic advantages</span>. Every tool is rigorously tested, every line of code is crafted for maximum performance, and every customer is treated as a priority.
-                </p>
-                <p class="about-text">
-                    Our reputation is our most valued asset. When you buy from 360, you aren't just making a purchase—you're investing in <span class="highlight">reliability and excellence</span>.
-                </p>
-                <p class="about-text">
-                    <span class="highlight">We are your #1 trusted coding seller.</span>
-                </p>
+                <div class="about-text">
+                    <p>Since 2022, 360 has operated at the intersection of code and capability. We develop and provide specialized digital tools for a discerning clientele.</p>
+                    <p>Our work is characterized by precision, reliability, and absolute discretion. We don't just sell products; we deliver engineered solutions.</p>
+                    <p>Trust is our foundation. Performance is our signature.</p>
+                </div>
+                <div class="discord-widget">
+                    <iframe src="https://discord.com/widget?id=1243353252797259864&theme=dark" width="350" height="400" allowtransparency="true" frameborder="0" sandbox="allow-popups allow-popups-to-escape-sandbox allow-same-origin allow-scripts"></iframe>
+                </div>
             </div>
         </div>
     </section>
 
-    <!-- FOOTER -->
+    <!-- Footer -->
     <footer>
         <div class="footer-content">
-            <ul class="footer-links">
-                <li><a href="terms.html">Terms of Service</a></li>
-                <li><a href="privacy.html">Privacy Policy</a></li>
-                <li><a href="#" onclick="alert('Contact us on Discord for any issues.')">Contact</a></li>
-            </ul>
-            <p class="copyright">© 2024 360 CODE. All rights reserved. Built with precision.</p>
+            <div class="footer-section">
+                <h5>360</h5>
+                <p>Digital Solutions</p>
+            </div>
+            <div class="footer-section">
+                <h5>Connect</h5>
+                <a href="https://discord.gg/WJfQuTU82B" target="_blank">Discord</a>
+            </div>
+            <div class="footer-section">
+                <h5>Legal</h5>
+                <a href="terms.html">Terms</a>
+                <a href="privacy.html">Privacy</a>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>&copy; 2024 360. All rights reserved.</p>
         </div>
     </footer>
 
-    <!-- PURCHASE MODAL -->
+    <!-- Purchase Modal -->
     <div id="purchaseModal" class="modal">
         <div class="modal-content">
             <span class="close-modal">&times;</span>
-            <h2 class="modal-title">PURCHASE CONFIRMATION</h2>
+            <h2 class="modal-title">Confirm Acquisition</h2>
+            <div class="encryption-animation">
+                <div class="encryption-line"></div>
+                <div class="encryption-text">SECURING CHANNEL...</div>
+            </div>
             <p class="modal-text"></p>
-            <input type="text" id="userDiscordId" placeholder="Your Discord ID (e.g., YourName#1234)" required>
+            <input type="text" id="userDiscordId" placeholder="Your Discord ID" required>
             <div class="modal-buttons">
-                <button class="modal-btn btn-cancel" onclick="closeModal()">CANCEL</button>
-                <button class="modal-btn btn-confirm" onclick="confirmPurchase()">CONFIRM & PAY</button>
+                <button class="modal-btn btn-cancel" onclick="closeModal()">Cancel</button>
+                <button class="modal-btn btn-confirm" onclick="confirmPurchase()">Proceed to Payment</button>
             </div>
         </div>
     </div>
 
-    <!-- SCRIPTS -->
     <script src="script.js"></script>
+    <script>
+        // Initialize Everything
+        document.addEventListener('DOMContentLoaded', function() {
+            // Initialize Particles
+            particlesJS('particles-js', {
+                "particles": {
+                    "number": { "value": 40, "density": { "enable": true, "value_area": 800 } },
+                    "color": { "value": "#00f0ff" },
+                    "shape": { "type": "circle" },
+                    "opacity": { "value": 0.2, "random": true },
+                    "size": { "value": 2, "random": true },
+                    "line_linked": { "enable": true, "distance": 150, "color": "#00f0ff", "opacity": 0.1, "width": 1 },
+                    "move": { "enable": true, "speed": 1, "direction": "none", "random": true, "straight": false, "out_mode": "out" }
+                },
+                "interactivity": {
+                    "detect_on": "canvas",
+                    "events": { "onhover": { "enable": true, "mode": "grab" }, "onclick": { "enable": true, "mode": "push" } },
+                    "modes": { "grab": { "distance": 140, "line_linked": { "opacity": 0.2 } }, "push": { "particles_nb": 2 } }
+                },
+                "retina_detect": true
+            });
+
+            // Initialize Sound Engine
+            window.soundEngine = {
+                hover: new Howl({ src: ['https://assets.mixkit.co/sfx/preview/mixkit-select-click-1109.mp3'] }),
+                click: new Howl({ src: ['https://assets.mixkit.co/sfx/preview/mixkit-click-button-1109.mp3'] }),
+                confirm: new Howl({ src: ['https://assets.mixkit.co/sfx/preview/mixkit-software-interface-start-2574.mp3'] })
+            };
+
+            // Initialize Text Scrambler
+            initScrambler();
+            // Initialize Crypto Ticker
+            initCryptoTicker();
+        });
+    </script>
 </body>
 </html>
